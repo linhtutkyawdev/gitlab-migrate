@@ -2,15 +2,15 @@ package cmd
 
 import (
 	"fmt"
-	"log"
+	// "log"
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/spf13/cobra/doc"
+	// "github.com/spf13/cobra/doc"
 )
 
 // Version is the current version of gitlab-migrate
-var Version = "v1.0.2"
+var Version = "v1.0.3"
 
 var configPath string
 var isDestination bool
@@ -57,10 +57,10 @@ func Execute() {
 	rootCmd.Version = Version
 	rootCmd.SetVersionTemplate("gitlab-migrate {{.Version}}")
 	rootCmd.PersistentFlags().StringVarP(&configPath, "config", "c", "", "Path to the config.yaml file (default: $HOME/config.yaml)")
-	err := doc.GenMarkdownTree(rootCmd, "./docs")
-	if err != nil {
-		log.Fatal(err)
-	}
+	// err := doc.GenMarkdownTree(rootCmd, "./docs")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 	rootCmd.AddCommand(NewMirrorCommand())
 
 	if err := rootCmd.Execute(); err != nil {
